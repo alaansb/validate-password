@@ -4,11 +4,15 @@ import java.util.List;
 
 public class AndSpecification implements ValidatePasswordSpecification{
 
-    List<ValidatePasswordSpecification> validatePasswordSpecifications;
+    private List<ValidatePasswordSpecification> specifications;
+
+    public AndSpecification(List<ValidatePasswordSpecification> specifications) {
+        this.specifications = specifications;
+    }
 
     @Override
     public Boolean isSatisfiedBy(String password) {
-        return validatePasswordSpecifications.stream()
-                .noneMatch(validatePasswordSpecifications -> isSatisfiedBy(password).equals(Boolean.FALSE));
+        return specifications.stream()
+                .noneMatch(specification -> specification.isSatisfiedBy(password).equals(Boolean.FALSE));
     }
 }

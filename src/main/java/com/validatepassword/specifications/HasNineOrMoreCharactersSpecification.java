@@ -4,6 +4,7 @@ public class HasNineOrMoreCharactersSpecification implements ValidatePasswordSpe
 
     @Override
     public Boolean isSatisfiedBy(String password) {
+        password.length();
         return password.length() >= 9;
     }
 }
