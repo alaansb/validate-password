@@ -2,7 +2,7 @@ package com.validatepassword.specifications;
 
 import java.util.function.IntPredicate;
 
-public class HasSpecialCharacterSpecification implements ValidatePasswordSpecification {
+public class ValidateSpecialCharacterSpecification implements ValidatePasswordSpecification {
 
     @Override
     public Boolean isSatisfiedBy(String password) {

@@ -1,6 +1,6 @@
 package com.validatepassword.specifications;
 
-public class HasLowerCaseLatterSpecification implements ValidatePasswordSpecification {
+public class ValidateLowerCaseLatterSpecification implements ValidatePasswordSpecification {
 
     @Override
     public Boolean isSatisfiedBy(String password) {

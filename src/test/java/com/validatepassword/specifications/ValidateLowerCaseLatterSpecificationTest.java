@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class HasLowerCaseLatterSpecificationTest {
+public class ValidateLowerCaseLatterSpecificationTest {
 
-    private HasLowerCaseLatterSpecification specification = new HasLowerCaseLatterSpecification();
+    private ValidateLowerCaseLatterSpecification specification = new ValidateLowerCaseLatterSpecification();
 
     @Test
     public void itShouldReturnTrueWhenPasswordHasLowerCaseLatter() {

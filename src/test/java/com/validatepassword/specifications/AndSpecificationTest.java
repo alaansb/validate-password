@@ -19,40 +19,40 @@ public class AndSpecificationTest {
     private AndSpecification specification;
 
     @Mock
-    private IsNotEmptySpecification isNotEmptySpecification;
+    private ValidateNotEmptySpecification validateNotEmptySpecification;
     @Mock
-    private HasSpecialCharacterSpecification hasSpecialCharacterSpecification;
+    private ValidateSpecialCharacterSpecification validateSpecialCharacterSpecification;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
 
-        List<ValidatePasswordSpecification> specifications = Arrays.asList(isNotEmptySpecification,
-                hasSpecialCharacterSpecification);
+        List<ValidatePasswordSpecification> specifications = Arrays.asList(validateNotEmptySpecification,
+                validateSpecialCharacterSpecification);
 
         specification = new AndSpecification(specifications);
     }
 
     @Test
     public void itShouldReturnTrueWhenAllSpecificationsReturnedTrue() {
-        when(isNotEmptySpecification.isSatisfiedBy(any())).thenReturn(Boolean.TRUE);
-        when(hasSpecialCharacterSpecification.isSatisfiedBy(any())).thenReturn(Boolean.TRUE);
+        when(validateNotEmptySpecification.isSatisfiedBy(any())).thenReturn(Boolean.TRUE);
+        when(validateSpecialCharacterSpecification.isSatisfiedBy(any())).thenReturn(Boolean.TRUE);
 
         assertTrue(specification.isSatisfiedBy(PASSWORD));
     }
 
     @Test
     public void itShouldReturnFalseWhenAnySpecificationsReturnedFalse() {
-        when(isNotEmptySpecification.isSatisfiedBy(any())).thenReturn(Boolean.TRUE);
-        when(hasSpecialCharacterSpecification.isSatisfiedBy(any())).thenReturn(Boolean.FALSE);
+        when(validateNotEmptySpecification.isSatisfiedBy(any())).thenReturn(Boolean.TRUE);
+        when(validateSpecialCharacterSpecification.isSatisfiedBy(any())).thenReturn(Boolean.FALSE);
 
         assertFalse(specification.isSatisfiedBy(PASSWORD));
     }
 
     @Test
     public void itShouldReturnFalseWhenAllSpecificationsReturnedFalse() {
-        when(isNotEmptySpecification.isSatisfiedBy(any())).thenReturn(Boolean.FALSE);
-        when(hasSpecialCharacterSpecification.isSatisfiedBy(any())).thenReturn(Boolean.FALSE);
+        when(validateNotEmptySpecification.isSatisfiedBy(any())).thenReturn(Boolean.FALSE);
+        when(validateSpecialCharacterSpecification.isSatisfiedBy(any())).thenReturn(Boolean.FALSE);
 
         assertFalse(specification.isSatisfiedBy(PASSWORD));
     }

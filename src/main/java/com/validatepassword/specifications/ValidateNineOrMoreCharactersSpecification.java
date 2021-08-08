@@ -1,6 +1,6 @@
 package com.validatepassword.specifications;
 
-public class HasNineOrMoreCharactersSpecification implements ValidatePasswordSpecification {
+public class ValidateNineOrMoreCharactersSpecification implements ValidatePasswordSpecification {
 
     @Override
     public Boolean isSatisfiedBy(String password) {

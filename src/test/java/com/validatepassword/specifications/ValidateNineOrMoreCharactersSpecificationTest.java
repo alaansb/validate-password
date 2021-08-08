@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class HasNineOrMoreCharactersSpecificationTest {
+public class ValidateNineOrMoreCharactersSpecificationTest {
 
-    private HasNineOrMoreCharactersSpecification specification = new HasNineOrMoreCharactersSpecification();
+    private ValidateNineOrMoreCharactersSpecification specification = new ValidateNineOrMoreCharactersSpecification();
 
     @Test
     public void itShouldReturnTrueWhenLengthOfPasswordEqualsNine() {

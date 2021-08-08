@@ -7,9 +7,9 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class HasSpecialCharacterSpecificationTest {
+public class ValidateSpecialCharacterSpecificationTest {
 
-    private HasSpecialCharacterSpecification specification = new HasSpecialCharacterSpecification();
+    private ValidateSpecialCharacterSpecification specification = new ValidateSpecialCharacterSpecification();
 
     @ParameterizedTest
     @ValueSource( strings= {"!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+"})

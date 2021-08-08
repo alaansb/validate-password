@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class IsNotEmptySpecificationTest {
+public class ValidateNotEmptySpecificationTest {
 
-    private IsNotEmptySpecification specification = new IsNotEmptySpecification();
+    private ValidateNotEmptySpecification specification = new ValidateNotEmptySpecification();
 
     @Test
     public void itShouldReturnTrueWhenPasswordIsNotEmpty() {
