@@ -7,8 +7,9 @@ public class HasSpecialCharacterSpecification implements ValidatePasswordSpecifi
     @Override
     public Boolean isSatisfiedBy(String password) {
 
-        IntPredicate predicate = Character::isLetterOrDigit;
+        IntPredicate predicate = value -> !Character.isLetterOrDigit(value);
 
-        return password.chars().anyMatch(predicate.and(Character::isWhitespace));
+        return password.chars()
+                .anyMatch(predicate.and(value -> !Character.isWhitespace(value)));
     }
 }
