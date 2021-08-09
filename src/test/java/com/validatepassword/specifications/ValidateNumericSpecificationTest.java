@@ -7,7 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValidateNumericSpecificationTest {
 
-    private ValidateNumericSpecification specification = new ValidateNumericSpecification();
+    private final ValidateNotEmptySpecification validateNotEmptySpecification = new ValidateNotEmptySpecification();
+    private final ValidateNumericSpecification specification = new ValidateNumericSpecification(validateNotEmptySpecification);
 
     @Test
     public void itShouldReturnTrueWhenPasswordHasDigit() {
@@ -27,5 +28,15 @@ public class ValidateNumericSpecificationTest {
     @Test
     public void itShouldReturnFalseWhenPasswordNotHasAnyDigit() {
         assertFalse(specification.isSatisfiedBy("test"));
+    }
+
+    @Test
+    public void itShouldReturnFalseWhenPasswordIsEmpty() {
+        assertFalse(specification.isSatisfiedBy(""));
+    }
+
+    @Test
+    public void itShouldReturnFalseWhenPasswordIsNull() {
+        assertFalse(specification.isSatisfiedBy(null));
     }
 }

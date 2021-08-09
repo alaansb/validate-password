@@ -5,24 +5,25 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ValidateNineOrMoreCharactersSpecificationTest {
+public class ValidateDuplicateCharacterSpecificationTest {
 
     private final ValidateNotEmptySpecification validateNotEmptySpecification = new ValidateNotEmptySpecification();
-    private final ValidateNineOrMoreCharactersSpecification specification = new ValidateNineOrMoreCharactersSpecification(validateNotEmptySpecification);
+    private final ValidateDuplicateCharacterSpecification specification =
+            new ValidateDuplicateCharacterSpecification(validateNotEmptySpecification);
 
     @Test
-    public void itShouldReturnTrueWhenLengthOfPasswordEqualsNine() {
-        assertTrue(specification.isSatisfiedBy("123456789"));
+    public void itShouldReturnTrueWhenPasswordNotHasDuplicateCharacter() {
+        assertTrue(specification.isSatisfiedBy("ab"));
     }
 
     @Test
-    public void itShouldReturnTrueWhenLengthOfPasswordIsMoreThanNine() {
-        assertTrue(specification.isSatisfiedBy("1234567891"));
+    public void itShouldReturnFalseWhenPasswordHasDuplicateCharacter() {
+        assertFalse(specification.isSatisfiedBy("aa"));
     }
 
     @Test
-    public void itShouldReturnFalseWhenLengthOfPasswordIsLessThanNine() {
-        assertFalse(specification.isSatisfiedBy("12345678"));
+    public void itShouldReturnFalseWhenPasswordHasAnyDuplicateCharacter() {
+        assertFalse(specification.isSatisfiedBy("test-test"));
     }
 
     @Test

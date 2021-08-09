@@ -9,7 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValidateSpecialCharacterSpecificationTest {
 
-    private ValidateSpecialCharacterSpecification specification = new ValidateSpecialCharacterSpecification();
+    private final ValidateNotEmptySpecification validateNotEmptySpecification = new ValidateNotEmptySpecification();
+    private final ValidateSpecialCharacterSpecification specification =
+            new ValidateSpecialCharacterSpecification(validateNotEmptySpecification);
 
     @ParameterizedTest
     @ValueSource( strings= {"!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+"})
@@ -31,5 +33,15 @@ public class ValidateSpecialCharacterSpecificationTest {
     @Test
     void itShouldReturnFalseWhenPasswordNotHasAnySpecialCharacter() {
         assertFalse(specification.isSatisfiedBy("test"));
+    }
+
+    @Test
+    public void itShouldReturnFalseWhenPasswordIsEmpty() {
+        assertFalse(specification.isSatisfiedBy(""));
+    }
+
+    @Test
+    public void itShouldReturnFalseWhenPasswordIsNull() {
+        assertFalse(specification.isSatisfiedBy(null));
     }
 }

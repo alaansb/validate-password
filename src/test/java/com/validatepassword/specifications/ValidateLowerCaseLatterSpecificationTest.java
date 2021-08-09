@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValidateLowerCaseLatterSpecificationTest {
 
-    private ValidateLowerCaseLatterSpecification specification = new ValidateLowerCaseLatterSpecification();
+    private final ValidateNotEmptySpecification validateNotEmptySpecification = new ValidateNotEmptySpecification();
+    private final ValidateLowerCaseLatterSpecification specification =
+            new ValidateLowerCaseLatterSpecification(validateNotEmptySpecification);
 
     @Test
     public void itShouldReturnTrueWhenPasswordHasLowerCaseLatter() {
@@ -27,5 +29,15 @@ public class ValidateLowerCaseLatterSpecificationTest {
     @Test
     public void itShouldReturnFalseWhenPasswordNotHasAnyLowerCaseLatter() {
         assertFalse(specification.isSatisfiedBy("TEST"));
+    }
+
+    @Test
+    public void itShouldReturnFalseWhenPasswordIsEmpty() {
+        assertFalse(specification.isSatisfiedBy(""));
+    }
+
+    @Test
+    public void itShouldReturnFalseWhenPasswordIsNull() {
+        assertFalse(specification.isSatisfiedBy(null));
     }
 }

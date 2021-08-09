@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValidateNotEmptySpecificationTest {
 
-    private ValidateNotEmptySpecification specification = new ValidateNotEmptySpecification();
+    private final ValidateNotEmptySpecification specification = new ValidateNotEmptySpecification();
 
     @Test
     public void itShouldReturnTrueWhenPasswordIsNotEmpty() {

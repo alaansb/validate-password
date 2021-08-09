@@ -12,12 +12,15 @@ public class ValidatePasswordSpecificationConfig {
 
     @Bean
     public AndSpecification validatePasswordSpecification() {
+
+        ValidateNotEmptySpecification validateNotEmptySpecification = new ValidateNotEmptySpecification();
+
         List<ValidatePasswordSpecification> specifications = Arrays.asList(new ValidateNotEmptySpecification(),
-                new ValidateNineOrMoreCharactersSpecification(),
-                new ValidateNumericSpecification(),
-                new ValidateLowerCaseLatterSpecification(),
-                new ValidateUpperCaseLatterSpecification(),
-                new ValidateSpecialCharacterSpecification());
+                new ValidateNineOrMoreCharactersSpecification(validateNotEmptySpecification),
+                new ValidateNumericSpecification(validateNotEmptySpecification),
+                new ValidateLowerCaseLatterSpecification(validateNotEmptySpecification),
+                new ValidateUpperCaseLatterSpecification(validateNotEmptySpecification),
+                new ValidateSpecialCharacterSpecification(validateNotEmptySpecification));
 
         return new AndSpecification(specifications);
     }
