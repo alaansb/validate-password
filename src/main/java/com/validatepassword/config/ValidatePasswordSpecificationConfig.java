@@ -20,7 +20,8 @@ public class ValidatePasswordSpecificationConfig {
                 new ValidateNumericSpecification(validateNotEmptySpecification),
                 new ValidateLowerCaseLatterSpecification(validateNotEmptySpecification),
                 new ValidateUpperCaseLatterSpecification(validateNotEmptySpecification),
-                new ValidateSpecialCharacterSpecification(validateNotEmptySpecification));
+                new ValidateSpecialCharacterSpecification(validateNotEmptySpecification),
+                new ValidateDuplicateCharacterSpecification(validateNotEmptySpecification));
 
         return new AndSpecification(specifications);
     }

@@ -39,5 +39,4 @@ public class ValidatePasswordServiceTest {
 
         assertFalse(validatePasswordService.isValidPassword(PASSWORD));
     }
-
 }

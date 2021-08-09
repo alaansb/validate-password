@@ -15,4 +15,8 @@ public class AndSpecification implements ValidatePasswordSpecification{
         return specifications.stream()
                 .noneMatch(specification -> specification.isSatisfiedBy(password).equals(Boolean.FALSE));
     }
+
+    public List<ValidatePasswordSpecification> getSpecifications () {
+        return this.specifications;
+    }
 }
