@@ -5,34 +5,34 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ValidateDuplicateCharacterSpecificationTest {
+class ValidateDuplicateCharacterSpecificationTest {
 
     private final ValidateNotEmptySpecification validateNotEmptySpecification = new ValidateNotEmptySpecification();
     private final ValidateDuplicateCharacterSpecification specification =
             new ValidateDuplicateCharacterSpecification(validateNotEmptySpecification);
 
     @Test
-    public void itShouldReturnTrueWhenPasswordNotHasDuplicateCharacter() {
+    void itShouldReturnTrueWhenPasswordNotHasDuplicateCharacter() {
         assertTrue(specification.isSatisfiedBy("ab"));
     }
 
     @Test
-    public void itShouldReturnFalseWhenPasswordHasDuplicateCharacter() {
+    void itShouldReturnFalseWhenPasswordHasDuplicateCharacter() {
         assertFalse(specification.isSatisfiedBy("aa"));
     }
 
     @Test
-    public void itShouldReturnFalseWhenPasswordHasAnyDuplicateCharacter() {
+    void itShouldReturnFalseWhenPasswordHasAnyDuplicateCharacter() {
         assertFalse(specification.isSatisfiedBy("test-test"));
     }
 
     @Test
-    public void itShouldReturnFalseWhenPasswordIsEmpty() {
+    void itShouldReturnFalseWhenPasswordIsEmpty() {
         assertFalse(specification.isSatisfiedBy(""));
     }
 
     @Test
-    public void itShouldReturnFalseWhenPasswordIsNull() {
+    void itShouldReturnFalseWhenPasswordIsNull() {
         assertFalse(specification.isSatisfiedBy(null));
     }
 }

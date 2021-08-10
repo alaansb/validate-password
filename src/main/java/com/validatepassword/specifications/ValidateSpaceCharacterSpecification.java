@@ -1,10 +1,10 @@
 package com.validatepassword.specifications;
 
-public class ValidateNumericSpecification implements ValidatePasswordSpecification {
+public class ValidateSpaceCharacterSpecification implements ValidatePasswordSpecification {
 
     private final ValidateNotEmptySpecification validateNotEmptySpecification;
 
-    public ValidateNumericSpecification(ValidateNotEmptySpecification validateNotEmptySpecification) {
+    public ValidateSpaceCharacterSpecification(ValidateNotEmptySpecification validateNotEmptySpecification) {
         this.validateNotEmptySpecification = validateNotEmptySpecification;
     }
 
@@ -12,7 +12,7 @@ public class ValidateNumericSpecification implements ValidatePasswordSpecificati
     public Boolean isSatisfiedBy(String password) {
 
         if(Boolean.TRUE.equals(validateNotEmptySpecification.isSatisfiedBy(password))) {
-            return password.chars().anyMatch(Character::isDigit);
+            return password.chars().noneMatch(Character::isWhitespace);
         }
 
         return false;

@@ -21,7 +21,8 @@ public class ValidatePasswordSpecificationConfig {
                 new ValidateLowerCaseLatterSpecification(validateNotEmptySpecification),
                 new ValidateUpperCaseLatterSpecification(validateNotEmptySpecification),
                 new ValidateSpecialCharacterSpecification(validateNotEmptySpecification),
-                new ValidateDuplicateCharacterSpecification(validateNotEmptySpecification));
+                new ValidateDuplicateCharacterSpecification(validateNotEmptySpecification),
+                new ValidateSpaceCharacterSpecification(validateNotEmptySpecification));
 
         return new AndSpecification(specifications);
     }

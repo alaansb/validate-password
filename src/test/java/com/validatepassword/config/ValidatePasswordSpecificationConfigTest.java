@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ValidatePasswordSpecificationConfigTest {
+class ValidatePasswordSpecificationConfigTest {
 
     private final ValidatePasswordSpecificationConfig config = new ValidatePasswordSpecificationConfig();
 
     @Test
-    public void itShouldCreateSpecificationConfigWithValidationsOfPassword() {
+    void itShouldCreateSpecificationConfigWithValidationsOfPassword() {
         AndSpecification specification = config.validatePasswordSpecification();
 
         assertTrue(specification.getSpecifications()
@@ -40,5 +40,9 @@ public class ValidatePasswordSpecificationConfigTest {
         assertTrue(specification.getSpecifications()
                 .stream()
                 .anyMatch(s -> s instanceof ValidateSpecialCharacterSpecification));
+
+        assertTrue(specification.getSpecifications()
+                .stream()
+                .anyMatch(s -> s instanceof ValidateSpaceCharacterSpecification));
     }
 }

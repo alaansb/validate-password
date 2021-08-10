@@ -14,7 +14,7 @@ public class ValidateDuplicateCharacterSpecification implements ValidatePassword
     @Override
     public Boolean isSatisfiedBy(String password) {
 
-        if(!validateNotEmptySpecification.isSatisfiedBy(password)) {
+        if(Boolean.FALSE.equals(validateNotEmptySpecification.isSatisfiedBy(password))) {
             return false;
         }
 

@@ -11,7 +11,7 @@ public class ValidateNineOrMoreCharactersSpecification implements ValidatePasswo
     @Override
     public Boolean isSatisfiedBy(String password) {
 
-        if(validateNotEmptySpecification.isSatisfiedBy(password)) {
+        if(Boolean.TRUE.equals(validateNotEmptySpecification.isSatisfiedBy(password))) {
             return password.length() >= 9;
         }
 

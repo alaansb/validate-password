@@ -5,39 +5,39 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ValidateLowerCaseLatterSpecificationTest {
+class ValidateLowerCaseLatterSpecificationTest {
 
     private final ValidateNotEmptySpecification validateNotEmptySpecification = new ValidateNotEmptySpecification();
     private final ValidateLowerCaseLatterSpecification specification =
             new ValidateLowerCaseLatterSpecification(validateNotEmptySpecification);
 
     @Test
-    public void itShouldReturnTrueWhenPasswordHasLowerCaseLatter() {
+    void itShouldReturnTrueWhenPasswordHasLowerCaseLatter() {
         assertTrue(specification.isSatisfiedBy("a"));
     }
 
     @Test
-    public void itShouldReturnFalseWhenPasswordNotHasLowerCaseLatter() {
+    void itShouldReturnFalseWhenPasswordNotHasLowerCaseLatter() {
         assertFalse(specification.isSatisfiedBy("A"));
     }
 
     @Test
-    public void itShouldReturnTrueWhenPasswordHasAnyLowerCaseLatter() {
+    void itShouldReturnTrueWhenPasswordHasAnyLowerCaseLatter() {
         assertTrue(specification.isSatisfiedBy("TEsT"));
     }
 
     @Test
-    public void itShouldReturnFalseWhenPasswordNotHasAnyLowerCaseLatter() {
+    void itShouldReturnFalseWhenPasswordNotHasAnyLowerCaseLatter() {
         assertFalse(specification.isSatisfiedBy("TEST"));
     }
 
     @Test
-    public void itShouldReturnFalseWhenPasswordIsEmpty() {
+    void itShouldReturnFalseWhenPasswordIsEmpty() {
         assertFalse(specification.isSatisfiedBy(""));
     }
 
     @Test
-    public void itShouldReturnFalseWhenPasswordIsNull() {
+    void itShouldReturnFalseWhenPasswordIsNull() {
         assertFalse(specification.isSatisfiedBy(null));
     }
 }

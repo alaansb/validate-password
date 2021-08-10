@@ -5,30 +5,30 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class ValidateUpperCaseLatterSpecificationTest {
+class ValidateSpaceCharacterSpecificationTest {
 
     private final ValidateNotEmptySpecification validateNotEmptySpecification = new ValidateNotEmptySpecification();
-    private final ValidateUpperCaseLatterSpecification specification =
-            new ValidateUpperCaseLatterSpecification(validateNotEmptySpecification);
+    private final ValidateSpaceCharacterSpecification specification =
+            new ValidateSpaceCharacterSpecification(validateNotEmptySpecification);
 
     @Test
-    void itShouldReturnTrueWhenPasswordHasUpperCaseLatter() {
+    void itShouldReturnTrueWhenPasswordNotHasSpaceCharacter() {
         assertTrue(specification.isSatisfiedBy("A"));
     }
 
     @Test
-    void itShouldReturnFalseWhenPasswordNotHasUpperCaseLatter() {
-        assertFalse(specification.isSatisfiedBy("a"));
+    void itShouldReturnFalseWhenPasswordNotSpaceCharacter() {
+        assertFalse(specification.isSatisfiedBy(" "));
     }
 
     @Test
-    void itShouldReturnTrueWhenPasswordHasAnyUpperCaseLatter() {
-        assertTrue(specification.isSatisfiedBy("teSt"));
+    void itShouldReturnTrueWhenPasswordNotHasAnySpaceCharacter() {
+        assertTrue(specification.isSatisfiedBy("test"));
     }
 
     @Test
-    void itShouldReturnFalseWhenPasswordNotHasAnyUpperCaseLatter() {
-        assertFalse(specification.isSatisfiedBy("test"));
+    void itShouldReturnFalseWhenPasswordHasAnySpaceCharacter() {
+        assertFalse(specification.isSatisfiedBy("te st"));
     }
 
     @Test

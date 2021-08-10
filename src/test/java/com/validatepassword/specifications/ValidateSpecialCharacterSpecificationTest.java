@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ValidateSpecialCharacterSpecificationTest {
+ class ValidateSpecialCharacterSpecificationTest {
 
     private final ValidateNotEmptySpecification validateNotEmptySpecification = new ValidateNotEmptySpecification();
     private final ValidateSpecialCharacterSpecification specification =
@@ -36,12 +36,12 @@ public class ValidateSpecialCharacterSpecificationTest {
     }
 
     @Test
-    public void itShouldReturnFalseWhenPasswordIsEmpty() {
+    void itShouldReturnFalseWhenPasswordIsEmpty() {
         assertFalse(specification.isSatisfiedBy(""));
     }
 
     @Test
-    public void itShouldReturnFalseWhenPasswordIsNull() {
+    void itShouldReturnFalseWhenPasswordIsNull() {
         assertFalse(specification.isSatisfiedBy(null));
     }
 }

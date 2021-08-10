@@ -11,7 +11,7 @@ public class ValidateUpperCaseLatterSpecification implements ValidatePasswordSpe
     @Override
     public Boolean isSatisfiedBy(String password) {
 
-        if(validateNotEmptySpecification.isSatisfiedBy(password)) {
+        if(Boolean.TRUE.equals(validateNotEmptySpecification.isSatisfiedBy(password))) {
             return password.chars().anyMatch(Character::isUpperCase);
         }
 

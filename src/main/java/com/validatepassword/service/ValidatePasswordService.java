@@ -1,7 +1,9 @@
 package com.validatepassword.service;
 
 import com.validatepassword.specifications.ValidatePasswordSpecification;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ValidatePasswordService {
 
     private final ValidatePasswordSpecification validatePasswordSpecification;

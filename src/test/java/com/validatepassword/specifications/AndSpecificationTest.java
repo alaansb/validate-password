@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-public class AndSpecificationTest {
+class AndSpecificationTest {
 
     private static final String PASSWORD = "test";
     private AndSpecification specification;
@@ -34,7 +34,7 @@ public class AndSpecificationTest {
     }
 
     @Test
-    public void itShouldReturnTrueWhenAllSpecificationsReturnedTrue() {
+    void itShouldReturnTrueWhenAllSpecificationsReturnedTrue() {
         when(validateNotEmptySpecification.isSatisfiedBy(any())).thenReturn(Boolean.TRUE);
         when(validateSpecialCharacterSpecification.isSatisfiedBy(any())).thenReturn(Boolean.TRUE);
 
@@ -42,7 +42,7 @@ public class AndSpecificationTest {
     }
 
     @Test
-    public void itShouldReturnFalseWhenAnySpecificationsReturnedFalse() {
+    void itShouldReturnFalseWhenAnySpecificationsReturnedFalse() {
         when(validateNotEmptySpecification.isSatisfiedBy(any())).thenReturn(Boolean.TRUE);
         when(validateSpecialCharacterSpecification.isSatisfiedBy(any())).thenReturn(Boolean.FALSE);
 
@@ -50,7 +50,7 @@ public class AndSpecificationTest {
     }
 
     @Test
-    public void itShouldReturnFalseWhenAllSpecificationsReturnedFalse() {
+    void itShouldReturnFalseWhenAllSpecificationsReturnedFalse() {
         when(validateNotEmptySpecification.isSatisfiedBy(any())).thenReturn(Boolean.FALSE);
         when(validateSpecialCharacterSpecification.isSatisfiedBy(any())).thenReturn(Boolean.FALSE);
 

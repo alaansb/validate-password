@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-public class ValidatePasswordServiceTest {
+class ValidatePasswordServiceTest {
 
     private static final String PASSWORD = "test";
 
@@ -27,14 +27,14 @@ public class ValidatePasswordServiceTest {
     }
 
     @Test
-    public void itShouldReturnTrueWhenPasswordIsValid() {
+    void itShouldReturnTrueWhenPasswordIsValid() {
         when(validatePasswordSpecification.isSatisfiedBy(any())).thenReturn(Boolean.TRUE);
 
         assertTrue(validatePasswordService.isValidPassword(PASSWORD));
     }
 
     @Test
-    public void itShouldReturnFalseWhenPasswordIsNotValid() {
+    void itShouldReturnFalseWhenPasswordIsNotValid() {
         when(validatePasswordSpecification.isSatisfiedBy(any())).thenReturn(Boolean.FALSE);
 
         assertFalse(validatePasswordService.isValidPassword(PASSWORD));
