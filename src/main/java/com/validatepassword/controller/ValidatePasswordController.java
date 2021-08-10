@@ -5,7 +5,7 @@ import com.validatepassword.service.ValidatePasswordService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/validate-password")
+@RequestMapping("/v1/validate-password")
 @RestController
 public class ValidatePasswordController {
 
